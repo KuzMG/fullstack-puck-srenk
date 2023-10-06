@@ -12,14 +12,14 @@ DROP TABLE IF EXISTS users;
 CREATE TABLE notes
 (
 	id serial NOT NULL,
-	first_date date,
-	last_date date,
-	text text,
-	imporatance boolean,
-	active boolean,
-	photo varchar,
-	type int,
-	name_user varchar NOT NULL UNIQUE,
+	name VARCHAR NOT NULL,
+	first_date date DEFAULT now(),
+	last_date date DEFAULT NULL,
+	txt text,
+	imporatance boolean DEFAULT FALSE,
+	active boolean DEFAULT TRUE,
+	photo varchar DEFAULT NULL,
+	name_user varchar NOT NULL,
 	PRIMARY KEY (id)
 ) WITHOUT OIDS;
 
@@ -39,7 +39,7 @@ ALTER TABLE notes
 	ADD FOREIGN KEY (name_user)
 	REFERENCES users (name)
 	ON UPDATE RESTRICT
-	ON DELETE RESTRICT
+	ON DELETE CASCADE
 ;
 
 
