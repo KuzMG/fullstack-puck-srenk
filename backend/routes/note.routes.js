@@ -2,16 +2,65 @@ import express from 'express'
 const noteRouter = express()
 import {noteController} from "../controller/note.controller.js"
 
+/*
+    запрос:
+    тело:
+        name: String (название заметки)
+        text: String (текст заметки)
+        name_user: String (пользователь)
+ */
 noteRouter.post("/create",noteController.createNote)
-
-noteRouter.get("/completed/:name",noteController.getAllCompleted)
-noteRouter.get("/active/:name", noteController.getAllActive)
-
-noteRouter.delete("/:note", noteController.deleteNote)
-
-noteRouter.put("/change/photo/:note", noteController.changePhoto)
-noteRouter.put("/change/importance/:note", noteController.changeImportance)
-noteRouter.put("/change/text/:note", noteController.changeText)
-noteRouter.put("/change/status/:note", noteController.changeStatus)
+/*
+    запрос:
+        name: String (ползователь)
+    тело:
+ */
+noteRouter.get("/completed",noteController.getAllCompleted)
+/*
+    запрос:
+        name: String (ползователь)
+    тело:
+ */
+noteRouter.get("/active", noteController.getAllActive)
+/*
+    запрос:
+        note: Int (id заметки)
+    тело:
+ */
+noteRouter.get("/photo", noteController.getPhoto)
+/*
+    запрос:
+        note: Int (id заметки)
+    тело:
+ */
+noteRouter.delete("/delete", noteController.deleteNote)
+/*
+    запрос:
+        note: Int (id заметки)
+    тело:
+        файл
+ */
+noteRouter.post("/change/photo", noteController.changePhoto)
+/*
+    запрос:
+        note: Int (id заметки)
+        importance: Boolean (важность заметки)
+    тело:
+ */
+noteRouter.put("/change/importance", noteController.changeImportance)
+/*
+    запрос:
+        note: Int (id заметки)
+    тело:
+        text: String (текст заметки)
+ */
+noteRouter.put("/change/text", noteController.changeText)
+/*
+    запрос:
+        note: Int (id заметки)
+        status: Boolean (статус заметки)
+    тело:
+ */
+noteRouter.put("/change/status", noteController.changeStatus)
 
 export default noteRouter

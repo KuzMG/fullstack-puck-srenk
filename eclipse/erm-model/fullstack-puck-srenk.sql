@@ -18,7 +18,6 @@ CREATE TABLE notes
 	txt text,
 	imporatance boolean DEFAULT FALSE,
 	active boolean DEFAULT TRUE,
-	photo varchar DEFAULT NULL,
 	name_user varchar NOT NULL,
 	PRIMARY KEY (id)
 ) WITHOUT OIDS;
@@ -38,7 +37,6 @@ CREATE TABLE users
 ALTER TABLE notes
 	ADD FOREIGN KEY (name_user)
 	REFERENCES users (name)
-	ON UPDATE RESTRICT
 	ON DELETE CASCADE
 ;
 
