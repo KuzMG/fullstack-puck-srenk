@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ru">
+    <head>
+        <meta name="viewport" charset="UTF-8" content="width=device-width, initital-scale=1.0">  
+        <title>TO-DO LIST</title>
+        <link rel="stylesheet" href="css/main.css">
+        <link rel="stylesheet" href="css/main_page.css">
+        <link rel="stylesheet" href="css/settings.css">
+        </head>
+    <body>
+        <script type="text/javascript" src="js/burger.js" defer></script>      
+        <nav class="navbar">
+            <div class="container__bar">
+                <div class="navbar__wrap">
+                    <h4 class="name_user">Имя</h4>
+                    <div class="burger">
+                        <div class="burger__icon" id="burger">
+                            <span class="bar"></span>
+                            <span class="bar"></span>
+                            <span class="bar"></span>
+                        </div>
+                    </div>
+                    <ul class="menu" id="menu">
+                        <li><a href="main_page.html">Главная</a></li>
+                        <li><a href="">Архив</a></li>
+                        <li><a href="">Статистика</a></li>
+                        <li><a href="settings.html">Настройки</a></li>
+                        <li><a href="index.html">Выход</a></li>
+                    </ul>
+                </div>
+            </div></div>
+        </nav>
+        <div class="popup" id="popup"></div>
+        <main class="main">
+            <div class="container__background">
+                <div class="header__panel">
+                    <p class="header__text">Настройки</p>
+                </div>
+                <div class="params">
+                    <div class="theme">
+                        <div class="switch-btn"></div>
+                        <p>Поменять тему</p>
+                    </div>
+                    <div class="language">
+                        <div class="switch-btn"></div>
+                        <p>Поменять язык</p>
+                    </div>
+                    <div class="delete__account">
+                        <div class="switch-btn"></div>
+                        <p>Удалить аккаунт</p>
+                    </div>
+                </div>
+            </div>
+        </main>
+        <script src="js/jquery.js"></script>
+        <script src="js/switchbtn.js"></script>
+    </body>
+</html>

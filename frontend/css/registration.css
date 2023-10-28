@@ -1,0 +1,69 @@
+.containter{
+    background-image:url('../img/registration.png');
+}
+
+ #login_in, #pass_in{
+    width: calc(240px + 40vw);
+    margin: 15px;
+    text-align: center;;
+    background: #828770;
+    color: #f1efe3;
+    padding: 1rem 1rem;
+    font-size: 32px;
+    border-radius: 15px;
+    border: 0cm;
+    -webkit-border-radius: 15px;
+    -moz-border-radius: 15px;
+    -ms-border-radius: 15px;
+    -o-border-radius: 15px;
+}
+
+#login_in::placeholder, #pass_in::placeholder{
+    color: #f1efe3;
+    font-size: 26px;
+}
+
+.small_text{
+    font-size: 26px;
+}
+
+.input_fields{
+    display: grid;
+    justify-items: center;
+}
+
+.login_field, .pass_field{
+    display: grid;
+    justify-items: center;
+    text-align: center;
+    font-size: 32px;
+    color: #f1efe3;
+}
+.login_field{
+    margin-top: 3.5em;
+}
+.pass_field{
+    margin-top: 2.2em;
+}
+
+.btn {
+    text-align: center;
+    margin: 0.5em;
+    background: #828770;
+    color: #f1efe3;
+    width: 50%;
+    padding: 1rem 1rem;
+    text-decoration: none;
+    font-size: 32px;
+    border-radius: 15px;
+    -webkit-border-radius: 15px;
+    -moz-border-radius: 15px;
+    -ms-border-radius: 15px;
+    -o-border-radius: 15px;
+}
+
+.authorization_buttons{
+    margin-top: -0.6em;
+    display: grid;
+    justify-items: center;
+}
