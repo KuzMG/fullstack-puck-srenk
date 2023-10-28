@@ -1,0 +1,33 @@
+.containter h2{
+    font-size: 72px;
+    margin-top: 10vh;
+    text-align: center;
+    color: #f1efe3;
+}
+
+.authorization_buttons{
+    margin-top: 20vh;
+    display: grid;
+    justify-items: center;
+}
+
+.containter{
+    background-image:url('../img/title.png');
+}
+
+.btn {
+    text-align: center;
+    margin: 0.5em;
+    background: #828770;
+    color: #f1efe3;
+    width: 60%;
+    padding: 1rem 1rem;
+    text-decoration: none;
+    text-align: center;
+    font-size: 32px;
+    border-radius: 15px;
+    -webkit-border-radius: 15px;
+    -moz-border-radius: 15px;
+    -ms-border-radius: 15px;
+    -o-border-radius: 15px;
+}
