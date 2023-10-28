@@ -52,21 +52,21 @@ class NoteController {
     async changeImportance(req, res) {
         const note = req.query.note
         const importance = req.query.importance
-        db.query("UPDATE INTO notes SET importance=$1 WHERE id=$2", [importance,note])
+        db.query("UPDATE notes SET importance=$1 WHERE id=$2", [importance,note])
         res.status(200).end()
     }
 
     async changeText(req, res) {
         const note = req.query.note
         const text = req.body.text
-        db.query("UPDATE INTO notes SET txt=$1 WHERE id=$2", [text,note])
+        db.query("UPDATE notes SET txt=$1 WHERE id=$2", [text,note])
         res.status(200).end()
     }
 
     async changeStatus(req, res) {
         const note = req.query.note
         const status = req.query.status
-        db.query("UPDATE INTO notes SET active=$1 WHERE id=$2", [status,note])
+        db.query("UPDATE notes SET active=$1 WHERE id=$2", [status,note])
         res.status(200).end()
     }
 }

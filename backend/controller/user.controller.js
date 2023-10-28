@@ -24,9 +24,11 @@ class UserController {
             res.status(200).send("Неправильный пароль")
         } else {
             console.log("ogogof")
-            db.query("UPDATE users SET pswhash= crypt($2,gen_salt('md5')) WHERE login=$1",[name,newPassword]).then(v=> {
+            db.query("UPDATE users SET pswhash = crypt($2,gen_salt('md5')) WHERE name=$1",[name,newPassword]).then(v=> {
+                console.log("ok")
                 res.status(200).end()
             }, e => {
+                console.log("error")
                 res.status(500).end()
             })
         }
