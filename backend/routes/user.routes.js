@@ -18,8 +18,18 @@ userRouter.post("/signIn",userController.signIn)
 userRouter.post("/signUp",userController.signUp)
 /*
     запрос:
+    тело:
+        name: String
+        oldPassword: String
+        newPassword: String
+ */
+userRouter.post("/changePsw",userController.changePassword)
+/*
+    запрос:
         name: String (пользователь)
     тело:
  */
 userRouter.delete("/delete", userController.deleteAccount)
+
+
 export default userRouter
