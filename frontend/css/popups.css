@@ -1,0 +1,177 @@
+.popupNotes, .popupToDo {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(65, 66, 61, 0.75);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 100;
+}
+
+.popup-content-notes, .popup-content-todos {
+    background-color: #b4ae8e;
+    width: 60vw;
+    max-width: 480px;
+    min-width: 280px;
+    height: 70vh;
+    min-height: 600px;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
+}
+
+.popup-content-notes h2, .popup-content-todos h2 {
+    margin-bottom: 20px;
+    text-align: center;
+    font-size: 32px;
+    color: #41423d;
+}
+
+textarea {
+    width: 100%;
+    height: 55vh;
+    background-color: #b4ae8e;
+    margin-bottom: 10px;
+    font-size: 18px;
+    padding: 12px;
+    border: 1px solid #41423d;
+    border-radius: 5px;
+    outline: none;
+    resize: none;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -ms-border-radius: 5px;
+    -o-border-radius: 5px;
+}
+
+button {
+    width: 100%;
+    padding: 10px 12px;
+    background-color: #41423d;
+    color: #f1efe3;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -ms-border-radius: 5px;
+    -o-border-radius: 5px;
+}
+
+.inputToDo{
+    display: flex;
+    justify-content: space-between;
+}
+
+.inputToDo input{
+    display: inline-block;
+    margin: 0px;
+    text-align: center;
+    background: #828770;
+    color: #f1efe3;
+    padding: 0.5rem 0.5rem;
+    font-size: 18px;
+    border-radius: 10px;
+    border: 0cm;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
+}
+.inputToDo input::placeholder{
+    color: #f1efe3;
+    font-size: 18px;
+}
+.inputToDo button{
+    display: inline-block;
+    width: 100%;
+}
+
+.close-popup-notes, .close-popup-checkList{
+    margin-top: 15px;
+}
+
+.close-popup-notes:hover,  button:hover,
+.close-popup-checkList:hover{
+    color: #9f8b59;
+}
+
+
+.todo-item {
+    max-width: 100%;
+    display: flex;
+    align-items: flex-end;
+    padding: 6px 0;
+    font-size: 18px;
+    position: relative;
+    hyphens: auto;
+    overflow-x: auto;
+}
+
+.todo-item input[type="checkbox"] {
+    margin-right: 8px;
+    white-space: nowrap;
+
+}
+
+.todo-item .checked {
+    text-decoration: line-through;
+    color: #ccc;
+}
+
+.delete {
+    background-color: #41423d;
+    color: white;
+    font-size: 20px;
+    margin-left: 10px;
+    line-height: 18px;
+    padding: 0 8px;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+@media (min-width: 1880px){
+    .popup-content-notes{
+        width: 100vw;
+        height: 80vh;
+    }
+    .popup-content-notes h2 {
+        font-size: 40px;
+    }
+    textarea{
+        font-size: 22px;
+        height: 63vh;
+    }
+    button{
+        font-size: 26px;
+    }
+}
+
+@media (max-width: 400px){
+    .inputToDo button{
+        font-size: 14px;
+        width: 90%;
+        margin-left: 10px;
+    }
+    .inputToDo input, .inputToDo input::placeholder{
+        font-size: 14px;
+    }
+    .inputToDo input{
+        width: 100%;
+        margin-right: 10%;
+    }
+    .popup-content-notes h2, .popup-content-todos h2 {
+        font-size: 24px;
+    }
+}

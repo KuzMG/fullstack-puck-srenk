@@ -18,7 +18,7 @@ class UserController {
             res.status(200).end()
         }, e => {
             if (e.code =='23505')
-                res.send('такой username уже существует')
+                res.status(400).send("Такой юзер уже есть...")
         })
     }
 

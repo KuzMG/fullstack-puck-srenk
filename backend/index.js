@@ -1,5 +1,6 @@
 import express from 'express'
 import multer from 'multer'
+import cors from 'cors'
 import userRouter from './routes/user.routes.js'
 import noteRouter from './routes/note.routes.js'
 const PORT = 8080;
@@ -21,6 +22,7 @@ function fileFilter (req, file, cb) {
         cb(null, false)
     }
 }
+app.use(cors())
 app.use(express.json())
 app.use(multer({storage:storage,fileFilter: fileFilter}).single("photo"));
 app.use("/api",userRouter)
