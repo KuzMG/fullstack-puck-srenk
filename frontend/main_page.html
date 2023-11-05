@@ -6,6 +6,7 @@
         <link rel="stylesheet" href="css/main.css">
         <link rel="stylesheet" href="css/main_page.css">
         <link rel="stylesheet" href="css/calendar.css">
+        <link rel="stylesheet" href="css/popups.css">
         </head>
     <body>
         <script type="text/javascript" src="js/burger.js" defer></script>      
@@ -23,7 +24,6 @@
                     <ul class="menu" id="menu">
                         <li><a href="main_page.html">Главная</a></li>
                         <li><a href="">Архив</a></li>
-                        <li><a href="">Статистика</a></li>
                         <li><a href="settings.html">Настройки</a></li>
                         <li><a href="index.html">Выход</a></li>
                     </ul>
@@ -46,27 +46,74 @@
                     <div class="calendar"></div>
                 </div>
                 <div class="notes__element">
+
                     <div class="notes">
-                        <img src="img/notes.png" alt="Заметки">
+                        <img src="img/notes.png" alt="Заметки" id="openNotes">
+                        <div class="popupNotes" id="popupNotes">
+                            <div class="popup-content-notes">
+                                <h2>Блокнот</h2>
+                                <form id="notesForm">
+                                    <textarea name="note-text" id="note-text" placeholder="Пиши обо всем, что думаешь..." rows="4" required></textarea>
+                                    <button type="submit">Сохранить заметку</button>
+                                </form>
+                                <button id="closePopupNotes" class="close-popup-notes">Отменить</button>
+                            </div>
+                        </div>
                     </div>
+
                     <div class="check_list">
-                        <img src="img/check_list.png" alt="Чек-лист">
+                        <img src="img/check_list.png" alt="Чек-лист"  id="openToDo">
+                        <div class="popupToDo" id="popupToDo">
+                            <div class="popup-content-todos">
+                                <h2>Чек-лист</h2>
+                                <div class="toDoContainer">
+                                 <form id="todo-form">
+                                        <div class="inputToDo">
+                                            <div><input class="toDoInput" type="text" id="todo-input" placeholder="Добавить чек-бокс:"></div>
+                                            <div><button class="toDoButton" type="submit">Добавить</button></div>
+                                        </div>
+                                    </form>
+                                    <ul id="todo-list"></ul>
+                                <button type="submit">Сохранить заметку</button>
+                                <button id="closePopupToDo" class="close-popup-todo">Отменить</button>
+                                </div>
+                            </div>
+                        </div>
                     </div>
+
+
                     <div class="planner">
-                        <img src="img/planner.png" alt="Планнер">
+                        <img src="img/planner.png" alt="Планнер" id="openNotes">
+                        <div class="popupNotes" id="popupNotes">
+                            <div class="popup-content-notes">
+                                <h2>Сделать заметку</h2>
+                                <form id="notesForm">
+                                    <textarea name="note-text" id="note-text" placeholder="Пиши обо всем, что думаешь..." rows="4" required></textarea>
+                                    <button type="submitNotes">Сохранить заметку</button>
+                                </form>
+                                <button id="closePopupNotes" class="close-popup-notes">Отменить</button>
+                            </div>
+                        </div>
                     </div>
+
+
                     <div class="brain_map">
-                        <img src="img/brain_map.png" alt="Карта мысле1">
+                        <img src="img/brain_map.png" alt="Карта мыслей" id="openNotes">
+                        <!-- <form id="registration">
+                        <button type="submit"></button>
+                        </form> -->
                     </div>
                 </div>
                 </div>
-            <footer class="footer">
-                <div class="progress__bar">
-                
+            
+            
+                <footer class="footer">
+                <div class="progress__bar">    
                 </div>
             </footer>
             </div>
         </main>
         <script src="js/calendar.js"></script>
+        <script src="js/popups.js"></script>
     </body>
 </html>

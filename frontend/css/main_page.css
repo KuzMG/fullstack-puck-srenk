@@ -137,6 +137,7 @@ img {
   position: absolute;
   width:55%;
   height: auto;
+  cursor: pointer;
 }
 
 .notes:hover, .check_list:hover, .planner:hover,.brain_map:hover{

@@ -1,6 +1,5 @@
 import db from "../db.js"
 import fs from "fs"
-
 class UserController {
     async signIn(req, res) {
         const {name, password} = req.body
@@ -40,8 +39,8 @@ class UserController {
         db.query("INSERT INTO users (name,pswhash) VALUES ($1,crypt($2,gen_salt('md5')))", [name, password]).then(v => {
             res.status(200).end()
         }, e => {
-            if (e.code == '23505')
-                res.send('такой username уже существует')
+            if (e.code =='23505')
+                res.status(400).send("Такой юзер уже есть...")
         })
     }
 
