@@ -6,6 +6,29 @@
 		url('../fonts/ofont.ru_Kreadon.ttf') format('ttf');
 }
 
+*::-webkit-scrollbar {
+    height: 40px;
+    width: 12px;
+    cursor: default;
+}
+
+*::-webkit-scrollbar-track {
+    background: #41423d;
+    cursor: default;
+}
+  
+*::-webkit-scrollbar-thumb {
+    background-color: #f1efe3;
+    border-radius: 5px;
+    border: 3px solid #f1efe3;
+    cursor: default;
+}
+*::-webkit-scrollbar-thumb:hover {
+    background-color: #9f8b59;
+    border: 3px solid #9f8b59;
+}
+  
+
 *{
     margin: 0;
     padding: 0;

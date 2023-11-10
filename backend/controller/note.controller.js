@@ -12,13 +12,13 @@ class NoteController {
 
     async getAllCompleted(req, res) {
         const name_user =  req.query.name
-        const note = await db.query("SELECT * FROM  notes WHERE active=FALSE AND name_user=$1", [name_user])
+        const note = await db.query("SELECT name, first_date, last_date, id, txt FROM  notes WHERE active=FALSE AND name_user=$1", [name_user])
         res.json(note)
     }
 
     async getAllActive(req, res) {
         const name_user =  req.query.name
-        const note = await db.query("SELECT * FROM  notes WHERE active=TRUE AND name_user=$1", [name_user])
+        const note = await db.query("SELECT name, first_date, id, txt FROM  notes WHERE active=TRUE AND name_user=$1", [name_user])
         res.json(note)
     }
 

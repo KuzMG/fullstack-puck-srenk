@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="ru">
     <head>
-        <meta name="viewport" charset="UTF-8" content="width=device-width, initital-scale=1">  
+        <meta name="viewport" charset="UTF-8" content="width=device-width">  
         <title>TO-DO LIST</title>
         <link rel="stylesheet" href="css/main.css">
         <link rel="stylesheet" href="css/registration.css">
@@ -9,18 +9,21 @@
     </head>
     <body>
         <div class="containter">
+            <form id="authorization">
             <div class="login_field">
-                <div class="small_text"><p><br>Введите логин</p></div>
+                <div class="small_text"><p><br><br>Введите логин</p></div>
                 <input type="text" id="login_in" placeholder="Введите логин:">
             </div>
             <div class="pass_field">
-                <div class="small_text"><p><br>Введите пароль</p></div>
+                <div class="small_text"><p><br><br>Введите пароль</p></div>
                 <input type="password" id="pass_in" placeholder="Введите пароль:">
             </div>
             <div class = "authorization_buttons">
-                <a href="main_page.html" class="btn">Авторизация</a>
+                <button type="submit" class="btn" id="registry">Авторизация</button>
                 <a href="index.html" class="btn">Назад</a>
+            </form>
             </div>
         </div>
+        <script src="js/authorization.js"></script>
     </body>
 </html>

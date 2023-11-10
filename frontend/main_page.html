@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="ru">
     <head>
-        <meta name="viewport" charset="UTF-8" content="width=device-width, initital-scale=1.0">  
+        <meta name="viewport" charset="UTF-8" content="width=device-width">  
         <title>TO-DO LIST</title>
         <link rel="stylesheet" href="css/main.css">
         <link rel="stylesheet" href="css/main_page.css">
@@ -13,7 +13,11 @@
         <nav class="navbar">
             <div class="container__bar">
                 <div class="navbar__wrap">
-                    <h4 class="name_user">Имя</h4>
+                    <h4 class="name_user">
+                        <script type="text/javascript">
+                            document.write(localStorage.getItem('username'));
+                        </script>
+                    </h4>
                     <div class="burger">
                         <div class="burger__icon" id="burger">
                             <span class="bar"></span>
@@ -23,7 +27,7 @@
                     </div>
                     <ul class="menu" id="menu">
                         <li><a href="main_page.html">Главная</a></li>
-                        <li><a href="">Архив</a></li>
+                        <li><a href="history.html">Архив</a></li>
                         <li><a href="settings.html">Настройки</a></li>
                         <li><a href="index.html">Выход</a></li>
                     </ul>
@@ -36,8 +40,17 @@
             <div class="left__container">
                 <div class="first_panel">
                     <p class="header">Задачи</p>
-                    <div class="tasks">
-                        <p class="task_text">asdasfasdasfasdasfasdasfasdasfasdasfasdasfasdasfasdasfasdasfasdasfasdasfasdasfasdasfasdasf</p>
+
+                </div>
+                <div class="tasks">
+                    <div class="active__container">
+                        <div class="grid-item" >Имя заметки</div>
+                        <div class="grid-item" >Дата создания</div>
+                        <div id="popupTask" class="hidden">
+                            <div id="headerDiv"><h5 id="headerNote"></h5></div>
+                            <div id="forText"></div>
+                            <div id="buttonDiv"><button id="closePopup">Закрыть</button></div>
+                          </div>
                     </div>
                 </div>
             </div>
@@ -51,8 +64,8 @@
                         <img src="img/notes.png" alt="Заметки" id="openNotes">
                         <div class="popupNotes" id="popupNotes">
                             <div class="popup-content-notes">
-                                <h2>Блокнот</h2>
                                 <form id="notesForm">
+                                    <h2><input type="text" id="notesHeader" placeholder="Введите заголовок:"></h2>
                                     <textarea name="note-text" id="note-text" placeholder="Пиши обо всем, что думаешь..." rows="4" required></textarea>
                                     <button type="submit">Сохранить заметку</button>
                                 </form>
@@ -65,16 +78,16 @@
                         <img src="img/check_list.png" alt="Чек-лист"  id="openToDo">
                         <div class="popupToDo" id="popupToDo">
                             <div class="popup-content-todos">
-                                <h2>Чек-лист</h2>
                                 <div class="toDoContainer">
-                                 <form id="todo-form">
+                                 <form id="todoForm">
+                                    <h2><input type="text" id="todosHeader" placeholder="Введите заголовок:"></h2>
                                         <div class="inputToDo">
                                             <div><input class="toDoInput" type="text" id="todo-input" placeholder="Добавить чек-бокс:"></div>
                                             <div><button class="toDoButton" type="submit">Добавить</button></div>
                                         </div>
                                     </form>
                                     <ul id="todo-list"></ul>
-                                <button type="submit">Сохранить заметку</button>
+                                    <button id="submitToDo">Сохранить заметку</button>      
                                 <button id="closePopupToDo" class="close-popup-todo">Отменить</button>
                                 </div>
                             </div>
@@ -83,15 +96,18 @@
 
 
                     <div class="planner">
-                        <img src="img/planner.png" alt="Планнер" id="openNotes">
-                        <div class="popupNotes" id="popupNotes">
-                            <div class="popup-content-notes">
-                                <h2>Сделать заметку</h2>
-                                <form id="notesForm">
-                                    <textarea name="note-text" id="note-text" placeholder="Пиши обо всем, что думаешь..." rows="4" required></textarea>
-                                    <button type="submitNotes">Сохранить заметку</button>
+                        <img src="img/planner.png" alt="Планнер" id="openPlanner">
+                        <div class="popupPlanner" id="popupPlanner">
+                            <div class="popup-content-planner">
+                                <form id="plannerForm">
+                                    <h2><input type="text" id="plannerHeader" placeholder="Введите заголовок:"></h2>
+                                    <div class="container__planner">
+                                        <ul class="planner-list" id="plannerList">
+                                        </ul>
+                                    </div>
+                                    <button type="submit">Сохранить заметку</button>
                                 </form>
-                                <button id="closePopupNotes" class="close-popup-notes">Отменить</button>
+                                <button id="closePopupPlanner" class="close-popup-planner">Отменить</button>
                             </div>
                         </div>
                     </div>
@@ -105,15 +121,10 @@
                     </div>
                 </div>
                 </div>
-            
-            
-                <footer class="footer">
-                <div class="progress__bar">    
-                </div>
-            </footer>
             </div>
         </main>
         <script src="js/calendar.js"></script>
         <script src="js/popups.js"></script>
+        <script src="js/active.js"></script>
     </body>
 </html>

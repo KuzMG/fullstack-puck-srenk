@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ru">
+    <head>
+        <meta name="viewport" charset="UTF-8" content="width=device-width">  
+        <title>TO-DO LIST</title>
+        <link rel="stylesheet" href="css/main.css">
+        <link rel="stylesheet" href="css/main_page.css">
+        <link rel="stylesheet" href="css/popups.css">
+        <link rel="stylesheet" href="css/history.css">
+        </head>
+    <body>
+        <nav class="navbar">
+            <div class="container__bar">
+                <div class="navbar__wrap">
+                    <h4 class="name_user">
+                        <script type="text/javascript">
+                            document.write(localStorage.getItem('username'));
+                        </script>
+                    </h4>
+                    <div class="burger">
+                        <div class="burger__icon" id="burger">
+                            <span class="bar"></span>
+                            <span class="bar"></span>
+                            <span class="bar"></span>
+                        </div>
+                    </div>
+                    <ul class="menu" id="menu">
+                        <li><a href="main_page.html">Главная</a></li>
+                        <li><a href="">Архив</a></li>
+                        <li><a href="settings.html">Настройки</a></li>
+                        <li><a href="index.html">Выход</a></li>
+                    </ul>
+                </div>
+            </div></div>
+        </nav>
+        <main class="main">
+            <div class="history__container">
+                <div class="grid-item">Имя заметки</div>
+                <div class="grid-item">Дата создания</div>
+                <div class="grid-item">Дата выполнения</div>
+                <div class="grid-item">Открыть</div>
+            </div>
+            <div id="popup" class="hidden">
+                <div id="headerDiv"><h5 id="headerNote"></h5></div>
+                <div id="forText"></div>
+                <div id="buttonDiv"><button id="closePopup">Закрыть</button></div>
+              </div>
+        </main>
+        <script type="text/javascript" src="js/burger.js" defer></script>      
+        <script type="text/javascript" src="js/history.js" defer></script>    
+    </body>
+</html>

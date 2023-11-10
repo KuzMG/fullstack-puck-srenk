@@ -4,6 +4,7 @@
     height: 100vh;
     grid-template-rows: 30vh 30vh 20vh;
     row-gap:  5vh;
+    overflow: hidden;
 }
 .login_field{
     display: grid;
@@ -13,7 +14,7 @@
     width: 70%;
     grid-template-rows: 40% 45%;
     text-align: center;
-    margin-top: 12.5vh;
+    margin-top: 10vh;
     margin-left: auto;
     margin-right: auto;
 }
@@ -25,21 +26,22 @@
     width: 70%;
     grid-template-rows: 40% 40%;
     text-align: center;
-    margin-top: 10vh;
+    margin-top: 1vh;
     margin-left: auto;
     margin-right: auto;
 }
 
 .authorization_buttons{
     display: grid;
-    height: 90%;
+    height: 50%;
     width: 50%;
-    margin-top: 3vh;
+    margin-top: -6vh;
     margin-left: auto;
     margin-right: auto;
     text-align: center;
+    vertical-align: middle;
     grid-template-rows: 50% 50%;
-    min-height: 180px;
+    min-height: 160px;
 }
 
  #login_in, #pass_in{
@@ -88,14 +90,24 @@
    -o-border-radius: 15px;
 }
 
+#registry{
+    border: 0px;
+}
 
+#registry:hover{
+    color: #9f8b59;
+    background: #41423d;
+}
 @media (min-width: 1600px){
     #login_in::placeholder, #pass_in::placeholder, .small_text, .btn{
         font-size: 42px;
     }
+    .small_text{
+        margin-top: -10px;
+    }
     .authorization_buttons{
-        margin-top: 7.5vh;
-        min-height: 300px;
+        margin-top: 5vh;
+        min-height: 260px;
     }
 }
 @media (max-width: 480px){
@@ -104,20 +116,22 @@
     }
     .containter{
         background-image:url('../img/registration.png');
-        display: grid;
-        width: 480px;
+        width: 100%;
         height: 100%;
-        grid-template-rows: 30vh 30vh 20vh;
-        row-gap:  5vh;
     }
     .authorization_buttons{
-        margin-top: 7vh;
-        min-height: 200px;
+        margin-top: 5vh;
+        min-height: 180px;
+        width:fit-content;
     }
     .login_field{
-    width: 100%;
+        width: 100%;
+        height: inherit;
+        margin-top: 12.5vh;
     }
     .pass_field{
-    width: 100%;
+        width: 100%;
+        height: inherit;
+        margin-top: 5vh;
     }
 }

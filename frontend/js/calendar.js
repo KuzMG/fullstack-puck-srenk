@@ -15,7 +15,7 @@ function CalendarControl() {
         "Авг",
         "Сен",
         "Окт",
-        "Нов",
+        "Ноя",
         "Дек"
       ],
       daysInMonth: function (month, year) {

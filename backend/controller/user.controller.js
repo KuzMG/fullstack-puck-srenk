@@ -1,14 +1,16 @@
+import { type } from "os";
 import db from "../db.js"
 import fs from "fs"
 class UserController {
     async signIn(req, res) {
         const {name, password} = req.body
-        db.query("SELECT (pswhash = crypt($2, pswhash)) AS login FROM users where name=$1", [name, password]).then(v => {
+        let signInFlag = await db.query("SELECT (pswhash = crypt($2, pswhash)) AS login FROM users where name=$1", [name, password])
+        let flag = signInFlag[0].login
+        if (flag){
             res.status(200).end()
-        }, e => {
-            console.log(e)
-            res.status(500).end()
-        })
+        } else {
+            res.status(400).end()
+        }
     }
 
 

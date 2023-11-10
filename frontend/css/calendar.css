@@ -130,6 +130,37 @@ svg{
 }
 
 
+@media (min-width:1800px) {
+    svg{
+        max-height: 40px;
+        max-width: 40px;
+    }
+    .calendar-today-date{
+        font-size: 36px;
+      }
+      .calendar-controls{
+        font-size: 32px;
+      }
+      .calendar .calendar-inner .calendar-body div{
+        font-size: 28px;
+        margin-top: 5px;
+      }
+      .calendar .calendar-inner .calendar-body div {
+        padding: 4px;
+        min-height: 40px;
+        line-height: 40px;
+        border: 2px solid transparent;
+        margin: 4px 4px 2px;
+    }
+    .calendar-year-month{
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+        margin: 10px;
+        text-align: center;
+        align-items: center;
+    }
+}
+
 @media (max-width: 660px){
     .calendar-body {
         font-size: 10px;

@@ -1,4 +1,4 @@
-.popupNotes, .popupToDo {
+.popupNotes, .popupToDo, .popupPlanner {
     position: fixed;
     top: 0;
     left: 0;
@@ -11,7 +11,8 @@
     z-index: 100;
 }
 
-.popup-content-notes, .popup-content-todos {
+.popup-content-notes, .popup-content-todos,
+.popup-content-planner {
     background-color: #b4ae8e;
     width: 60vw;
     max-width: 480px;
@@ -27,7 +28,8 @@
     -o-border-radius: 10px;
 }
 
-.popup-content-notes h2, .popup-content-todos h2 {
+.popup-content-notes h2, .popup-content-todos h2,
+.popup-content-planner h2 {
     margin-bottom: 20px;
     text-align: center;
     font-size: 32px;
@@ -36,7 +38,7 @@
 
 textarea {
     width: 100%;
-    height: 55vh;
+    height: 50vh;
     background-color: #b4ae8e;
     margin-bottom: 10px;
     font-size: 18px;
@@ -104,7 +106,6 @@ button {
     color: #9f8b59;
 }
 
-
 .todo-item {
     max-width: 100%;
     display: flex;
@@ -113,35 +114,140 @@ button {
     font-size: 18px;
     position: relative;
     hyphens: auto;
-    overflow-x: auto;
+    overflow: visible;
 }
 
+li .todo-item{
+    text-align: center;
+    vertical-align: middle;
+}
 .todo-item input[type="checkbox"] {
     margin-right: 8px;
     white-space: nowrap;
-
+    width: 20px;
+    height: 20px;
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -ms-border-radius: 5px;
+    -o-border-radius: 5px;
+    text-align: center;
+    vertical-align: middle;
 }
-
+.todo-item span{
+    width: 85%;
+    overflow-wrap: break-word;
+}
 .todo-item .checked {
     text-decoration: line-through;
-    color: #ccc;
+    color: #f1efe3;
+}
+
+.popup-content-todos, .popup-content-planner{
+    overflow: auto;
 }
 
 .delete {
+    text-align: center;
+    vertical-align: middle;
     background-color: #41423d;
     color: white;
     font-size: 20px;
-    margin-left: 10px;
+    width: 28px;
+    height: 20px;
+
     line-height: 18px;
     padding: 0 8px;
     border: none;
-    border-radius: 3px;
+    border-radius: 4px;
     cursor: pointer;
     white-space: nowrap;
     overflow: hidden;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    -ms-border-radius: 3px;
+    -o-border-radius: 3px;
+}
+#todo-form{
+    margin-bottom: 5px;
+}
+.toDoContainer .close-popup-todo{
+    margin-top: 10px;
 }
 
+#submitToDo{
+    margin-top: 10px;
+}
+
+#notesHeader, #todosHeader, #plannerHeader{
+    background: transparent;
+    border: none;
+    font-size: 24px;
+    text-align: center;
+}
+
+.planner-list > li{
+    width: 100%;
+    list-style-type: none;
+}
+.container-planner-area{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.planner-list > li > div > span{
+    font-size: 20px;
+    margin-right: 15px;
+}
+
+.planner-list > li > div > textarea{
+    text-align: right;
+    width: 75%;
+    height: 10vh;
+}
+
+#plannerForm{
+    margin-bottom: 10px;
+}
+
+/* 
+.container__planner {
+    max-width: 300px;
+    margin: 0 auto;
+}
+
+.planner-list {
+    list-style-type: none;
+    padding: 0;
+}
+
+.planner-list li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    border-bottom: 1px solid #ccc;
+}
+
+.planner-list li:last-child {
+    border-bottom: none;
+}
+
+.planner-list .time {
+    font-weight: bold;
+}
+
+.planner-list .note {
+    flex-grow: 1;
+    margin-left: 10px;
+} */
+
+
+
+
+
 @media (min-width: 1880px){
+
     .popup-content-notes{
         width: 100vw;
         height: 80vh;
@@ -158,11 +264,17 @@ button {
     }
 }
 
-@media (max-width: 400px){
+@media (max-width: 440px){
     .inputToDo button{
         font-size: 14px;
         width: 90%;
         margin-left: 10px;
+    }
+    .todo-item span{
+        width: 80%;
+    }
+    .popup-content-notes{
+        height: 80%;
     }
     .inputToDo input, .inputToDo input::placeholder{
         font-size: 14px;
@@ -174,4 +286,10 @@ button {
     .popup-content-notes h2, .popup-content-todos h2 {
         font-size: 24px;
     }
+    #notesHeader, #todosHeader, #plannerHeader{
+        max-width: 200px;
+        font-size: 22px;
+        text-align: center;
+    }
+    
 }

@@ -1,15 +1,15 @@
 .authorization_buttons{
-    margin-top: 5vh;
+    margin-top: 1vh;
 }
 
 @media (min-width: 1600px){
     .authorization_buttons{
-        margin-top: 7.5vh;
+        margin-top: 5vh;
     }
 }
 
 @media (max-width: 480px){
     .authorization_buttons{
-        margin-top: 7.5vh;
+        margin-top: 4.5vh;
     }
 }

@@ -6,6 +6,8 @@ document.querySelector("#registration").addEventListener("submit", function(e) {
   
   if (password === '' || login === '') {
     alert("Проверьте правильность введенных данных");
+  } else if (password.length < 8) {
+    alert("Проверьте, что длина пароля больше 8 символов");
   } else {
     const serverURL = "http://localhost:8080/api/signUp"; 
     fetch(serverURL, {
@@ -14,8 +16,6 @@ document.querySelector("#registration").addEventListener("submit", function(e) {
         'Accept': 'application/json',
         'Content-Type': 'application/json'
       },
-    
-      //make sure to serialize your JSON body
       body: JSON.stringify({
         name: login,
         password: password
@@ -24,12 +24,16 @@ document.querySelector("#registration").addEventListener("submit", function(e) {
       .then((response) => {
         if (response.status === 200) {
           alert("Вы зарегистрировались!");
+          localStorage.clear();
+          localStorage.setItem('username', login);
+          window.location = "main_page.html";
         } else {
           alert("Такой юзер уже есть...");
         }
       })
       .catch((error) => {
-        alert(error);
+        alert("Ошибочка: ", error);
       });
   }
 });
+
