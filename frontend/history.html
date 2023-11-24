@@ -9,6 +9,7 @@
         <link rel="stylesheet" href="css/history.css">
         </head>
     <body>
+<script type="text/javascript" src="js/burger.js" defer></script>      
         <nav class="navbar">
             <div class="container__bar">
                 <div class="navbar__wrap">
@@ -26,27 +27,33 @@
                     </div>
                     <ul class="menu" id="menu">
                         <li><a href="main_page.html">Главная</a></li>
-                        <li><a href="">Архив</a></li>
+                        <li><a href="history.html">Архив</a></li>
                         <li><a href="settings.html">Настройки</a></li>
                         <li><a href="index.html">Выход</a></li>
                     </ul>
                 </div>
             </div></div>
         </nav>
+        <div class="popup" id="popup"></div>
         <main class="main">
             <div class="history__container">
+                <div class="grid-item"><input class="place_for_search" type="text" onkeyup="myFunction()" id="text-to-find" value="" placeholder=" Поиск:" autofocus> </div>
+                <div class="grid-item"><button class="button_for_dart_name" id="button_for_sort_name" type="submit" value="1">имя↑</button></div>
+                <div class="grid-item"><button class="button_for_sort_date" id="button_for_sort_date" type="submit" value="1">создание↑</button></div>
+                <div class="grid-item"><button class="button_for_sort_last" id="button_for_sort_last" type="submit" value="1">выполнение↑</button></div>
                 <div class="grid-item">Имя заметки</div>
                 <div class="grid-item">Дата создания</div>
                 <div class="grid-item">Дата выполнения</div>
                 <div class="grid-item">Открыть</div>
             </div>
-            <div id="popup" class="hidden">
-                <div id="headerDiv"><h5 id="headerNote"></h5></div>
-                <div id="forText"></div>
-                <div id="buttonDiv"><button id="closePopup">Закрыть</button></div>
-              </div>
+            <div id="popupArchive" >
+                <div class="hidden">
+                    <div id="headerDiv"><h5 id="headerNote"></h5></div>
+                    <div id="forText"></div>
+                    <div id="buttonDiv"><button id="closeArchive">Закрыть</button></div>
+                </div>
+            </div>
         </main>
-        <script type="text/javascript" src="js/burger.js" defer></script>      
-        <script type="text/javascript" src="js/history.js" defer></script>    
+                <script type="text/javascript" src="js/history.js"></script>    
     </body>
 </html>

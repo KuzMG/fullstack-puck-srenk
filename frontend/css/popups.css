@@ -1,4 +1,25 @@
-.popupNotes, .popupToDo, .popupPlanner {
+body {
+    --text-color: #f1efe3;
+    --bkg-popup-color: #b4ae8e;
+    --bkg-panel-color: #41423d;
+    --bkg-color: #828770;
+    --design: #9f8b59;
+    --dark-design: #746130;
+    --container: #555847;
+    --calendar: #373737;
+}
+body.dark-theme {
+    --text-color: #f2e9e4;
+    --bkg-popup-color: #9a8c98;
+    --bkg-panel-color: #22223b;
+    --bkg-color: #4a4e69;
+    --design: #adb5f1;
+    --dark-design: #dee2ff;
+    --container: #c9ada7;
+    --calendar: #373737;
+    background: #3d405b;
+}
+.popupNotes, .popupToDo, .popupPlanner, .popupBrain {
     position: fixed;
     top: 0;
     left: 0;
@@ -12,8 +33,8 @@
 }
 
 .popup-content-notes, .popup-content-todos,
-.popup-content-planner {
-    background-color: #b4ae8e;
+.popup-content-planner, .popup-content-brain{
+    background-color: var(--bkg-popup-color);
     width: 60vw;
     max-width: 480px;
     min-width: 280px;
@@ -29,21 +50,21 @@
 }
 
 .popup-content-notes h2, .popup-content-todos h2,
-.popup-content-planner h2 {
+.popup-content-planner h2, .popup-content-brain h2{
     margin-bottom: 20px;
     text-align: center;
     font-size: 32px;
-    color: #41423d;
+    color: var(--bkg-panel-color);
 }
 
 textarea {
     width: 100%;
-    height: 50vh;
-    background-color: #b4ae8e;
+    height: 47.5vh;
+    background-color: var(--bkg-popup-color);
     margin-bottom: 10px;
     font-size: 18px;
     padding: 12px;
-    border: 1px solid #41423d;
+    border: 1px solid var(--bkg-panel-color);
     border-radius: 5px;
     outline: none;
     resize: none;
@@ -56,8 +77,8 @@ textarea {
 button {
     width: 100%;
     padding: 10px 12px;
-    background-color: #41423d;
-    color: #f1efe3;
+    background-color: var(--bkg-panel-color);
+    color: var(--text-color);
     font-size: 16px;
     border: none;
     border-radius: 5px;
@@ -68,6 +89,13 @@ button {
     -o-border-radius: 5px;
 }
 
+#grid-item-buttons > button{
+    padding: 10px 6px;
+    margin-left: 10px;
+  }
+#grid-item-input{
+    white-space: normal;
+}
 .inputToDo{
     display: flex;
     justify-content: space-between;
@@ -77,8 +105,8 @@ button {
     display: inline-block;
     margin: 0px;
     text-align: center;
-    background: #828770;
-    color: #f1efe3;
+    background: var(--bkg-color);
+    color: var(--text-color);
     padding: 0.5rem 0.5rem;
     font-size: 18px;
     border-radius: 10px;
@@ -89,7 +117,7 @@ button {
     -o-border-radius: 10px;
 }
 .inputToDo input::placeholder{
-    color: #f1efe3;
+    color: var(--text-color);
     font-size: 18px;
 }
 .inputToDo button{
@@ -97,13 +125,9 @@ button {
     width: 100%;
 }
 
-.close-popup-notes, .close-popup-checkList{
-    margin-top: 15px;
-}
-
 .close-popup-notes:hover,  button:hover,
-.close-popup-checkList:hover{
-    color: #9f8b59;
+.close-popup-checkList:hover, .close-popup-brain:hover{
+    color: var(--design);
 }
 
 .todo-item {
@@ -140,18 +164,19 @@ li .todo-item{
 }
 .todo-item .checked {
     text-decoration: line-through;
-    color: #f1efe3;
+    color: var(--text-color);
 }
 
-.popup-content-todos, .popup-content-planner{
+.popup-content-todos, .popup-content-planner, .popup-content-brain{
     overflow: auto;
+    overflow-x: hidden;
 }
 
 .delete {
     text-align: center;
     vertical-align: middle;
-    background-color: #41423d;
-    color: white;
+    background-color: var(--bkg-panel-color);
+    color: var(--text-color);
     font-size: 20px;
     width: 28px;
     height: 20px;
@@ -179,7 +204,7 @@ li .todo-item{
     margin-top: 10px;
 }
 
-#notesHeader, #todosHeader, #plannerHeader{
+#notesHeader, #todosHeader, #plannerHeader, #brainHeader{
     background: transparent;
     border: none;
     font-size: 24px;
@@ -203,47 +228,85 @@ li .todo-item{
 .planner-list > li > div > textarea{
     text-align: right;
     width: 75%;
-    height: 10vh;
+    height: 6vh;
 }
 
 #plannerForm{
     margin-bottom: 10px;
 }
 
-/* 
-.container__planner {
-    max-width: 300px;
+#deletePopupNotes, #archivePopupNotes{
+    display: none;
+}
+ 
+.container__brain {
+    width: 100%;
+    max-width: 800px;
     margin: 0 auto;
+padding: 5px;
 }
 
-.planner-list {
+#input_brain_note {
+    width: 100%;
+    border-radius: 5px;
+    padding: 6px 12px;
+    margin-bottom: 10px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -ms-border-radius: 5px;
+    -o-border-radius: 5px;
+}
+
+#add_brain_note {
+    width: 100%;
+    background-color: var(--bkg-panel-color);
+    color: var(--text-color);
+    padding: 6px 12px;
+    border: none;
+    cursor: pointer;
+    margin-bottom: 5px;
+}
+
+#brain_notes,
+.note-children-brain {
     list-style-type: none;
-    padding: 0;
+    }
+
+.note_brain {
+    background-color: var(--bkg-popup-color);
+    padding-left: 10px;
+    margin-top: 5px;
+    margin-bottom: 7.5px;
+    border-left: 2px solid var(--bkg-panel-color);
+    height: max-content;
+    min-height: 20px;
+    position: relative;
+    word-break: break-all;
+    white-space: normal;
 }
 
-.planner-list li {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px;
-    border-bottom: 1px solid #ccc;
+.note_brain .note-controls-brain {
+    width: 100%;
+    display: inline-flex;
 }
 
-.planner-list li:last-child {
-    border-bottom: none;
+
+.note_brain .add-child-brain,
+.note_brain .delete-brain{
+    display:inline-block;
+    background-color: var(--bkg-panel-color);
+    color: var(--text-color);
+    border: none;
+    cursor: pointer;
+    padding: 4px 8px;
+    font-size: 12px;
+    margin: 5px;
 }
-
-.planner-list .time {
-    font-weight: bold;
+.note:hover,
+.note_brain .add-child-brain:hover,
+.note_brain .delete-brain:hover{
+    color: var(--design);
 }
-
-.planner-list .note {
-    flex-grow: 1;
-    margin-left: 10px;
-} */
-
-
-
 
 
 @media (min-width: 1880px){

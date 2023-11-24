@@ -1,8 +1,30 @@
+body {
+    --text-color: #f1efe3;
+    --bkg-popup-color: #b4ae8e;
+    --bkg-panel-color: #41423d;
+    --bkg-color: #828770;
+    --design: #9f8b59;
+    --dark-design: #746130;
+    --container: #555847;
+    --calendar: #373737;
+}
+body.dark-theme {
+    --text-color: #f2e9e4;
+    --bkg-popup-color: #9a8c98;
+    --bkg-panel-color: #22223b;
+    --bkg-color: #4a4e69;
+    --design: #adb5f1;
+    --dark-design: #dee2ff;
+    --container: #c9ada7;
+    --calendar: #373737;
+    background: #3d405b;
+}
+
 .containter h2{
     font-size: 72px;
     margin-top: 10vh;
     text-align: center;
-    color: #f1efe3;
+    color: var(--text-color);
 }
 
 .authorization_buttons{
@@ -18,8 +40,8 @@
 .btn {
     text-align: center;
     margin: 0.5em;
-    background: #828770;
-    color: #f1efe3;
+    background: var(--bkg-color);
+    color: var(--text-color);
     width: 60%;
     padding: 1rem 1rem;
     text-decoration: none;
@@ -41,8 +63,8 @@
     .btn {
         text-align: center;
         margin: 0.5em;
-        background: #828770;
-        color: #f1efe3;
+        background: var(--bkg-color);
+        color: var(--text-color);
         width: 60%;
         height: 7.5vh;
         padding: 1rem 1rem;

@@ -1,3 +1,24 @@
+body {
+    --text-color: #f1efe3;
+    --bkg-popup-color: #b4ae8e;
+    --bkg-panel-color: #41423d;
+    --bkg-color: #828770;
+    --design: #9f8b59;
+    --dark-design: #746130;
+    --container: #555847;
+    --calendar: #373737;
+}
+body.dark-theme {
+    --text-color: #f2e9e4;
+    --bkg-popup-color: #9a8c98;
+    --bkg-panel-color: #22223b;
+    --bkg-color: #4a4e69;
+    --design: #adb5f1;
+    --dark-design: #dee2ff;
+    --container: #c9ada7;
+    --calendar: #373737;
+    background: #3d405b;
+}
 .containter{
     background-image:url('../img/registration.png');
     display: grid;
@@ -47,8 +68,8 @@
  #login_in, #pass_in{
     margin: 15px;
     text-align: center;
-    background: #828770;
-    color: #f1efe3;
+    background: var(--bkg-color);
+    color: var(--text-color);
     padding: 1rem 1rem;
     font-size:26px;
     vertical-align: middle;
@@ -61,13 +82,13 @@
 }
 
 #login_in::placeholder, #pass_in::placeholder{
-    color: #f1efe3;
+    color: var(--text-color);
     font-size: 26px;
 }
 
 .small_text{
     font-size: 26px;
-    color: #f1efe3;
+    color: var(--text-color);
 }
 
 .input_fields{
@@ -78,8 +99,8 @@
 .btn {
    text-align: center;
    margin: 0.5em;
-   background: #828770;
-   color: #f1efe3;
+   background: var(--bkg-color);
+   color: var(--text-color);
    padding: 1rem 1rem;
    text-decoration: none;
    font-size: 26px;
@@ -95,8 +116,8 @@
 }
 
 #registry:hover{
-    color: #9f8b59;
-    background: #41423d;
+    color: var(--design);
+    background: var(--bkg-panel-color);
 }
 @media (min-width: 1600px){
     #login_in::placeholder, #pass_in::placeholder, .small_text, .btn{

@@ -1,3 +1,9 @@
+function init(){
+  if (localStorage.getItem('theme') == 'dark'){
+    document.querySelector('body').classList.add('dark-theme');
+  } 
+}
+
 document.querySelector("#authorization").addEventListener("submit", function(e) {
     e.preventDefault();
   
@@ -25,6 +31,7 @@ document.querySelector("#authorization").addEventListener("submit", function(e) 
             alert("Вы успешно авторизировались!");
             localStorage.clear();
             localStorage.setItem('username', login);
+            localStorage.setItem('theme', '');
             window.location = "main_page.html";
           } else {
             alert("Неправильные данные, повторите попытку ещё раз!");
@@ -36,4 +43,4 @@ document.querySelector("#authorization").addEventListener("submit", function(e) 
     }
   });
   
-  
+init()

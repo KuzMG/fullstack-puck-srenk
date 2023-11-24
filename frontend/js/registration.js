@@ -1,3 +1,9 @@
+function init(){
+  if (localStorage.getItem('theme') == 'dark'){
+    document.querySelector('body').classList.add('dark-theme');
+  } 
+}
+
 document.querySelector("#registration").addEventListener("submit", function(e) {
   e.preventDefault();
 
@@ -26,6 +32,7 @@ document.querySelector("#registration").addEventListener("submit", function(e) {
           alert("Вы зарегистрировались!");
           localStorage.clear();
           localStorage.setItem('username', login);
+          localStorage.setItem('theme', '');
           window.location = "main_page.html";
         } else {
           alert("Такой юзер уже есть...");
@@ -37,3 +44,4 @@ document.querySelector("#registration").addEventListener("submit", function(e) {
   }
 });
 
+init()

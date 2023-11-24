@@ -1,9 +1,26 @@
+body {
+    --text-color: #f1efe3;
+    --bkg-popup-color: #b4ae8e;
+    --bkg-panel-color: #41423d;
+    --bkg-color: #828770;
+    --design: #9f8b59;
+    --dark-design: #746130;
+    --container: #555847;
+    --calendar: #373737;
+}
+body.dark-theme {
+    --text-color: #f2e9e4;
+    --bkg-popup-color: #9a8c98;
+    --bkg-panel-color: #22223b;
+    --bkg-color: #4a4e69;
+    --design: #adb5f1;
+    --dark-design: #dee2ff;
+    --container: #c9ada7;
+    --calendar: #373737;
+    background: #3d405b;
+}
+
 :root {
-    --calendar-bg-color: #b4ae8e;
-    --calendar-font-color: #373737;
-    --weekdays-border-bottom-color: #373737;
-    --calendar-date-hover-color: #373737;
-    --calendar-current-date-color: #373737;
     --calendar-border-radius: 10px;
 }
 
@@ -13,8 +30,8 @@
     position: relative;
     max-width: 100%;
     max-height: 100%;
-    background: var(--calendar-bg-color);
-    color: var(--calendar-font-color);
+    background: var(--bkg-popup-color);
+    color: var(--calendar);
     box-sizing: border-box;
     overflow: hidden;
     font-weight: normal;
@@ -46,31 +63,31 @@
 
 .calendar .calendar-inner .calendar-body div:nth-child(-n+7) {
     border: 1px solid transparent;
-    border-bottom: 1px solid var(--weekdays-border-bottom-color);
+    border-bottom: 1px solid var(--calendar);
 }
 
 .calendar .calendar-inner .calendar-body div:nth-child(-n+7):hover {
     border: 1px solid transparent;
-    border-bottom: 1px solid var(--weekdays-border-bottom-color);
+    border-bottom: 1px solid var(--calendar);
 }
 
 .calendar .calendar-inner .calendar-body div>a {
-    color: var(--calendar-font-color);
+    color: var(--calendar);
     text-decoration: none;
     display: flex;
     justify-content: center;
 }
 
 .prev-dates:hover, .next-dates:hover{
-    background-color: #746130;
+    background-color: var(--dark-design);
     border-radius: 4px;
-    border: 1px solid var(#746130);
+    border: 1px solid var(--dark-design);
 } 
 
 .calendar-body a:hover{
-    background-color: #9f8b59;
+    background-color: var(--design);
     border-radius: 4px;
-    border: 1px solid var(#9f8b59);
+    border: 1px solid var(--design);
     -webkit-border-radius: 4px;
     -moz-border-radius: 4px;
     -ms-border-radius: 4px;
@@ -78,14 +95,14 @@
 }
 
 .calendar-next a:hover, .calendar-prev a:hover{
-    background-color: #9f8b59;
+    background-color: var(--design);
     box-sizing: 55px;
     border-radius: 4px;
 }
 .calendar-next a svg:hover, .calendar-prev a svg:hover{
-    background-color: #9f8b59;
+    background-color: var(--design);
     border-radius: 4px;
-    border: 1px solid var(#9f8b59);
+    border: 1px solid var(--design);
 }
 
 .calendar .calendar-inner .calendar-body div.empty-dates:hover {
@@ -101,7 +118,7 @@
 
 .calendar .calendar-inner .calendar-today-date {
     display: grid;
-    color: #f1efe3;
+    color: var(--text-color);
     text-align: center;
     cursor: pointer;
     margin: 3px 0px;

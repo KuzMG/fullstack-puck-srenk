@@ -13,6 +13,11 @@
                 <a href="registration.html" class="btn">Регистрация</a>
                 <a href="authorization.html" class="btn">Авторизация</a>
             </div>
+            <script type="text/javascript">
+                if (localStorage.getItem('theme') == 'dark'){
+                    document.querySelector('body').classList.add('dark-theme')
+                } 
+            </script>
         </div>
     </body>
 </html>

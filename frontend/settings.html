@@ -12,7 +12,11 @@
         <nav class="navbar">
             <div class="container__bar">
                 <div class="navbar__wrap">
-                    <h4 class="name_user">Имя</h4>
+                    <h4 class="name_user">
+                        <script type="text/javascript">
+                            document.write(localStorage.getItem('username'));
+                        </script>
+                    </h4>
                     <div class="burger">
                         <div class="burger__icon" id="burger">
                             <span class="bar"></span>
@@ -22,7 +26,7 @@
                     </div>
                     <ul class="menu" id="menu">
                         <li><a href="main_page.html">Главная</a></li>
-                        <li><a href="">Архив</a></li>
+                        <li><a href="history.html">Архив</a></li>
                         <li><a href="settings.html">Настройки</a></li>
                         <li><a href="index.html">Выход</a></li>
                     </ul>
@@ -40,18 +44,37 @@
                         <div class="switch-btn"></div>
                         <p>Поменять тему</p>
                     </div>
-                    <div class="language">
-                        <div class="switch-btn"></div>
-                        <p>Поменять язык</p>
+                    <div class="change__password">
+                        <button id="change-pass-btn"></button>
+                        <p>Поменять пароль</p>
                     </div>
                     <div class="delete__account">
-                        <div class="switch-btn"></div>
+                        <button id="delete-acc-btn"></button>
                         <p>Удалить аккаунт</p>
+                    </div>
+                    <div class="exit">
+                        <a id="exit-a" href="index.html">Выход</a>
+                    </div>
+                </div>
+                <div class="popup_change">
+                    <div class="popup_visible">
+                        <div class="old_pass_field">
+                            <div class="small_text"><p><br><br>Введите старый пароль</p></div>
+                            <input type="text" id="old_pass_in" placeholder="Введите старый пароль:">
+                        </div>
+                        <div class="new_pass_field">
+                            <div class="small_text"><p><br><br>Введите новый пароль</p></div>
+                            <input type="password" id="new_pass_in" placeholder="Введите новый пароль:">
+                        </div>
+                        <div class="buttons_fields">
+                            <div class="send_changes"><button id="send_pass">Отправить</button></div>
+                            <div class="close_changes"><button id="close_pass">Закрыть</button></div>
+                        </div>
                     </div>
                 </div>
             </div>
         </main>
         <script src="js/jquery.js"></script>
-        <script src="js/switchbtn.js"></script>
+        <script src="js/setting.js"></script>
     </body>
 </html>

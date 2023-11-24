@@ -1,16 +1,37 @@
+body {
+    --text-color: #f1efe3;
+    --bkg-popup-color: #b4ae8e;
+    --bkg-panel-color: #41423d;
+    --bkg-color: #828770;
+    --design: #9f8b59;
+    --dark-design: #746130;
+    --container: #555847;
+    --calendar: #373737;
+}
+body.dark-theme {
+    --text-color: #f2e9e4;
+    --bkg-popup-color: #9a8c98;
+    --bkg-panel-color: #22223b;
+    --bkg-color: #4a4e69;
+    --design: #adb5f1;
+    --dark-design: #dee2ff;
+    --container: #c9ada7;
+    --calendar: #373737;
+    background: #3d405b;
+}
 .container__background{
     width: 70%;
     height: 80%;
     margin: 5% 0% 15% 15%;
     border-radius: 10px;
-    background-color: #b4ae8e;
+    background-color: var(--bkg-popup-color);
 }
 
 .header__panel{
     width: 100%;
     height: 10%;
     border-radius: 10px 10px 0px 0px;
-    background: #41423d;
+    background: var(--bkg-panel-color);
     -webkit-border-radius: 10px 10px 0px 0px;
     -moz-border-radius: 10px 10px 0px 0px;
     -ms-border-radius: 10px 10px 0px 0px;
@@ -21,7 +42,7 @@
     font-size: 28px;
     padding: 10px;
     text-align: center;
-    color: #f1efe3;
+    color: var(--text-color);
 }
 
 .params{
@@ -47,7 +68,7 @@
     width: 72px; /* ширина */
     height: 38px; /* высота */
     border-radius: 19px; /* радиус скругления */
-    background: linear-gradient(to right, #606355 0, #535b31 50%, #383f1f 60%, #a7842b 100%);
+    background: linear-gradient(to right, var(--bkg-color) 0, var(--container) 50%, var(--bkg-panel-color) 60%, var(--design) 100%);
     background-size: 180px 100%;
     z-index: 0;
     margin: 0;
@@ -62,7 +83,7 @@
     height: 32px; /* высота кнопки */
     width: 32px; /* ширина кнопки */
     border-radius: 17px;
-    background: #fff; /* цвет кнопки */
+    background: var(--text-color); /* цвет кнопки */
     top: 3px; /* положение кнопки по вертикали относительно основы */
     left: 3px; /* положение кнопки по горизонтали относительно основы */
     transition-duration: 300ms; /* анимация */
@@ -76,7 +97,96 @@
     left: 37px;
 }
 
+#change-pass-btn, #delete-acc-btn{
+    height: 3vw;
+    min-height: 20px;
+    min-width: 32px;
+    width: 6vw;
+    border-radius: 10px;
+    border: 2px bold var(--dark-design);
+    background: var(--bkg-panel-color);
+}
+a{
+    text-decoration: none;
+}
+.exit{
+    width: 80%;
+    font-size: 20px;
+    
+}
+#exit-a{
+    margin: 50%;
+    color: var(--bkg-panel-color)
+}
+#change-pass-btn:hover, #delete-acc-btn:hover{
+    background: var(--design);
+    cursor: pointer;
+}
+#exit-a:hover{
+    color: var(--design);
+    cursor: pointer;
+    background: var(--bkg-popup-color);
+}
 
+.popup_change{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(65, 66, 61, 0.75);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 100;
+}
+.popup_visible{
+    display: grid;
+    grid-template-rows: 25% 25% 15% 15%;
+    row-gap: 5%;
+    top: 0;
+    left: 0;
+    height: 70vh;
+    width: 40vw;
+    align-items: center;
+    border-radius: 20px;
+    background-color: var(--bkg-popup-color);
+}
+
+.small_text{
+    font-size: 24px;
+    color: var(--text-color);
+    text-align: center;
+}
+
+.popup_visible > div {
+    margin: 0 auto;
+}
+#old_pass_in, #new_pass_in{
+    width: 25vw;
+    height: 7.5vh;
+    border-radius: 20px;
+    margin: 5px;
+    background-color: var(--bkg-popup-color);
+    color: var(--text-color);
+    text-align: center;
+}
+#old_pass_in::placeholder, #new_pass_in::placeholder{
+    color: var(--text-color);
+}
+#close_pass, #send_pass{
+    width: 17.5vw;
+    height: 7.5vh;
+    border-radius: 20px;
+    color: var(--text-color);
+    background-color: var(--bkg-panel-color);
+    border: none;
+    margin: 5px;
+}
+#close_pass:hover, #send_pass:hover{
+    color: var(--design);
+    background-color: var(--bkg-panel-color);
+}
 
 @media (max-width: 660px){
     .params div p{
@@ -91,7 +201,7 @@
         font-size: 26px;
         padding: 5px;
         text-align: center;
-        color: #f1efe3;
+        color: var(--text-color);
     }
 }
 

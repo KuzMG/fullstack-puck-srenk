@@ -44,6 +44,13 @@
                 </div>
                 <div class="tasks">
                     <div class="active__container">
+                        <div class="grid-item" id="grid-item-input">
+                            <input class="place_for_search" type="text" onkeyup="myFunction()" id="text-to-find" value="" placeholder=" Поиск:" autofocus> 
+                        </div>
+                        <div class="grid-item" id="grid-item-buttons">
+                            <button class="button_for_sort_date" id="button_for_sort_name" type="submit" value="1">имя↑</button>
+                            <button class="button_for_dart_name" id="button_for_sort_date" type="submit" value="1">дата↑</button>
+                        </div>
                         <div class="grid-item" >Имя заметки</div>
                         <div class="grid-item" >Дата создания</div>
                         <div id="popupTask" class="hidden">
@@ -66,10 +73,14 @@
                             <div class="popup-content-notes">
                                 <form id="notesForm">
                                     <h2><input type="text" id="notesHeader" placeholder="Введите заголовок:"></h2>
-                                    <textarea name="note-text" id="note-text" placeholder="Пиши обо всем, что думаешь..." rows="4" required></textarea>
-                                    <button type="submit">Сохранить заметку</button>
+                                    <textarea id="note-text" placeholder="Пиши обо всем, что думаешь..." rows="4" required></textarea>
+                                    <div class="outer">
+                                        <div class="inner"><button id="savePopupNotes">Сохранить заметку</button></div>
+                                        <div class="inner"><button id="closePopupNotes" class="close-popup-notes">Отменить</button></div>
+                                        <div class="inner"><button id="deletePopupNotes" class="delete-popup-notes">Удалить</button></div>
+                                        <div class="inner"><button id="archivePopupNotes" class="archive-popup-notes">Архивировать</button></div>
+                                    </div>
                                 </form>
-                                <button id="closePopupNotes" class="close-popup-notes">Отменить</button>
                             </div>
                         </div>
                     </div>
@@ -87,8 +98,12 @@
                                         </div>
                                     </form>
                                     <ul id="todo-list"></ul>
-                                    <button id="submitToDo">Сохранить заметку</button>      
-                                <button id="closePopupToDo" class="close-popup-todo">Отменить</button>
+                                    <div class="outer__todo">
+                                        <div class="inner"><button type="submit" id="submitToDo">Сохранить заметку</button></div>
+                                        <div class="inner"><button id="closePopupToDo" class="close-popup-todo">Отменить</button></div>
+                                        <div class="inner"><button id="deleteToDo" class="delete-popup-todo">Удалить</button></div>
+                                        <div class="inner"><button id="archiveToDo" class="archive-popup-todo">Архивировать</button></div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -105,19 +120,38 @@
                                         <ul class="planner-list" id="plannerList">
                                         </ul>
                                     </div>
-                                    <button type="submit">Сохранить заметку</button>
+                                    <div class="outer">
+                                        <div class="inner"><button id="savePopupPlanner" type="submit">Сохранить заметку</button></div>
+                                        <div class="inner"><button id="closePopupPlanner" class="close-popup-planner">Отменить</button></div>
+                                        <div class="inner"><button id="deletePopupPlanner" class="delete-popup-planner">Удалить</button></div>
+                                        <div class="inner"><button id="archivePopupPlanner" class="archive-popup-planner">Архивировать</button></div>
+                                    </div>
                                 </form>
-                                <button id="closePopupPlanner" class="close-popup-planner">Отменить</button>
                             </div>
                         </div>
                     </div>
 
 
                     <div class="brain_map">
-                        <img src="img/brain_map.png" alt="Карта мыслей" id="openNotes">
-                        <!-- <form id="registration">
-                        <button type="submit"></button>
-                        </form> -->
+                        <img src="img/brain_map.png" alt="Карта мыслей" id="openBrain">
+                        <div class="popupBrain" id="popupBrain">
+                        <div class="popup-content-brain">
+                                <form id="brainForm">
+                                    <h2><input type="text" id="brainHeader" placeholder="Введите заголовок:"></h2>
+                                    <div class="container__brain">
+                                        <input type="text" id="input_brain_note" placeholder="Введите заметку:">
+                                            <button id="add_brain_note">Добавить заметку</button>
+                                            <ul id="brain_notes"></ul>
+                                    </div>
+                                    <div class="outer">
+                                        <div class="inner"><button id="savePopupBrain" type="submit">Сохранить заметку</button></div>
+                                        <div class="inner"><button id="closePopupBrain" class="close-popup-brain">Отменить</button></div>
+                                        <div class="inner"><button id="deletePopupBrain" class="delete-popup-brain">Удалить</button></div>
+                                        <div class="inner"><button id="archivePopupBrain" class="archive-popup-brain">Архивировать</button></div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 </div>

@@ -16,12 +16,22 @@ noteRouter.post("/create",noteController.createNote)
     тело:
  */
 noteRouter.get("/completed",noteController.getAllCompleted)
+
+noteRouter.get("/completed/sortered", noteController.getSortСompleted)
 /*
     запрос:
         name: String (ползователь)
     тело:
  */
 noteRouter.get("/active", noteController.getAllActive)
+/*
+    запрос:
+        name: String (ползователь)
+        field: String (поле)
+        trend: String (направление)
+    тело:
+ */
+noteRouter.get("/active/sortered", noteController.getSortActive)
 /*
     запрос:
         note: Int (id заметки)
@@ -58,7 +68,6 @@ noteRouter.put("/change/text", noteController.changeText)
 /*
     запрос:
         note: Int (id заметки)
-        status: Boolean (статус заметки)
     тело:
  */
 noteRouter.put("/change/status", noteController.changeStatus)

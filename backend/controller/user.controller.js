@@ -16,13 +16,14 @@ class UserController {
 
     async changePassword(req, res) {
         const {name, oldPassword, newPassword} = req.body
+        console.log({name, oldPassword, newPassword})
         let access = await db.query("SELECT (pswhash = crypt($2, pswhash)) AS login FROM users where name=$1", [name, oldPassword])
 
         let  ass = access[0].login
         console.log(ass)
         if (!access[0].login) {
             console.log("[eq]")
-            res.status(200).send("Неправильный пароль")
+            res.status(400).send("Неправильный пароль")
         } else {
             console.log("ogogof")
             db.query("UPDATE users SET pswhash = crypt($2,gen_salt('md5')) WHERE name=$1",[name,newPassword]).then(v=> {
@@ -48,14 +49,7 @@ class UserController {
 
     async deleteAccount(req, res) {
         const name = req.query.name
-        const photos = await db.query("SELECT id FROM notes WHERE name_user=$1", [name])
-        console.log(photos)
         db.query("DELETE FROM users WHERE name=$1", [name])
-        for (let i = 0; i < photos.length; i++) {
-            fs.unlink('photo/' + photos[i].id, (err) => {
-                if (err && err.code != 'ENOENT') throw err;
-            });
-        }
         res.status(200).end()
     }
 }
