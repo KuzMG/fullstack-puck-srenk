@@ -1,6 +1,4 @@
 import db from "../db.js"
-import fs from "fs"
-import __dirname from '../dirname.js';
 
 
 class NoteController {
@@ -11,13 +9,13 @@ class NoteController {
     }
 
     async getAllCompleted(req, res) {
-        const name_user =  req.query.name
+        const name_user = req.query.name
         const note = await db.query("SELECT name, first_date, last_date, id, txt FROM  notes WHERE active=FALSE AND name_user=$1 ORDER BY first_date DESC", [name_user])
         res.json(note)
     }
 
     async getAllActive(req, res) {
-        const name_user =  req.query.name
+        const name_user = req.query.name
         const note = await db.query("SELECT name, first_date, id, txt FROM  notes WHERE active=TRUE AND name_user=$1 ORDER BY first_date DESC", [name_user])
         res.json(note)
     }
@@ -42,39 +40,15 @@ class NoteController {
 
 
     async deleteNote(req, res) {
-       const note =  req.query.note
+        const note = req.query.note
         db.query("DELETE FROM notes WHERE id=$1", [note])
-                res.status(200).end()
-    }
-
-    async changePhoto(req, res) {
-        const note = req.query.note
-
-        if(!filedata){
-            res.status(400).send("ТЫ ДОЛБАЕБ???")
-        }
-        else {
-            res.status(200).send("ФАЙЛ ЗАГРУЖЕН")
-        }
-
-    }
-
-    async getPhoto(req,res){
-        const note = req.query.note
-        res.sendFile(__dirname+'/photo/'+note)
-    }
-
-    async changeImportance(req, res) {
-        const note = req.query.note
-        const importance = req.query.importance
-        db.query("UPDATE notes SET importance=$1 WHERE id=$2", [importance,note])
         res.status(200).end()
     }
 
     async changeText(req, res) {
         const note = req.query.note
         const text = req.body.text
-        db.query("UPDATE notes SET txt=$1 WHERE id=$2", [text,note])
+        db.query("UPDATE notes SET txt=$1 WHERE id=$2", [text, note])
         res.status(200).end()
     }
 

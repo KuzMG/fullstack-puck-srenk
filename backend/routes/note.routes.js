@@ -16,7 +16,13 @@ noteRouter.post("/create",noteController.createNote)
     тело:
  */
 noteRouter.get("/completed",noteController.getAllCompleted)
-
+/*
+    запрос:
+        name: String (ползователь)
+        field: String (поле)
+        trend: String (направление)
+    тело:
+ */
 noteRouter.get("/completed/sortered", noteController.getSortСompleted)
 /*
     запрос:
@@ -37,27 +43,7 @@ noteRouter.get("/active/sortered", noteController.getSortActive)
         note: Int (id заметки)
     тело:
  */
-noteRouter.get("/photo", noteController.getPhoto)
-/*
-    запрос:
-        note: Int (id заметки)
-    тело:
- */
 noteRouter.delete("/delete", noteController.deleteNote)
-/*
-    запрос:
-        note: Int (id заметки)
-    тело:
-        файл
- */
-noteRouter.post("/change/photo", noteController.changePhoto)
-/*
-    запрос:
-        note: Int (id заметки)
-        importance: Boolean (важность заметки)
-    тело:
- */
-noteRouter.put("/change/importance", noteController.changeImportance)
 /*
     запрос:
         note: Int (id заметки)

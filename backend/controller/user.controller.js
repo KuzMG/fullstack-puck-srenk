@@ -1,12 +1,10 @@
-import { type } from "os";
 import db from "../db.js"
-import fs from "fs"
+
 class UserController {
     async signIn(req, res) {
         const {name, password} = req.body
-        let signInFlag = await db.query("SELECT (pswhash = crypt($2, pswhash)) AS login FROM users where name=$1", [name, password])
-        let flag = signInFlag[0].login
-        if (flag){
+        let access = await db.query("SELECT (pswhash = crypt($2, pswhash)) AS login FROM users where name=$1", [name, password])
+        if (access[0].login) {
             res.status(200).end()
         } else {
             res.status(400).end()
@@ -18,15 +16,10 @@ class UserController {
         const {name, oldPassword, newPassword} = req.body
         console.log({name, oldPassword, newPassword})
         let access = await db.query("SELECT (pswhash = crypt($2, pswhash)) AS login FROM users where name=$1", [name, oldPassword])
-
-        let  ass = access[0].login
-        console.log(ass)
         if (!access[0].login) {
-            console.log("[eq]")
             res.status(400).send("Неправильный пароль")
         } else {
-            console.log("ogogof")
-            db.query("UPDATE users SET pswhash = crypt($2,gen_salt('md5')) WHERE name=$1",[name,newPassword]).then(v=> {
+            db.query("UPDATE users SET pswhash = crypt($2,gen_salt('md5')) WHERE name=$1", [name, newPassword]).then(v => {
                 console.log("ok")
                 res.status(200).end()
             }, e => {
@@ -42,7 +35,7 @@ class UserController {
         db.query("INSERT INTO users (name,pswhash) VALUES ($1,crypt($2,gen_salt('md5')))", [name, password]).then(v => {
             res.status(200).end()
         }, e => {
-            if (e.code =='23505')
+            if (e.code == '23505')
                 res.status(400).send("Такой юзер уже есть...")
         })
     }
